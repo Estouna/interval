@@ -18,6 +18,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="<?= BASE_PATH ?>categories">Catégories</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://cyrilgab.alwaysdata.net/cyril-depont2/repInterval.html">Résumé / Rappel</a>
+                </li>
             </ul>
 
             <ul class="navbar-nav ml-auto">

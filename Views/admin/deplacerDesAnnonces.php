@@ -1,4 +1,4 @@
-<h2 class="text-center text-primary py-2 my-5 border-bottom border-primary">Articles dans la catégorie <?= $categorie->name?></h2>
+<h1 class="text-center text-primary py-2 my-5 border-bottom border-primary">Articles dans la catégorie <?= $categorie->name?></h1>
 
 <!-- 
     -------------------------------------------------------- ARTICLES DANS LA CATEGORIE -------------------------------------------------------- 

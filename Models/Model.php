@@ -15,9 +15,12 @@ class Model extends Db
     private $db;
 
     /* 
-        -------------------------------------------------------- READ --------------------------------------------------------
+        XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX READ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
     */
 
+
+
+    /*  ____________________________________________________ FIND ALL ____________________________________________________ */
     /**
      * Sélection de tous les enregistrements d'une table
      * @return array Tableau des enregistrements trouvés
@@ -28,6 +31,21 @@ class Model extends Db
         return $query->fetchAll();
     }
 
+    /**
+     * Sélection de tous les enregistrements d'une table suivant un ordre croissant ou décroisant (ex : $annonces = $model->findAllOrderBy('created_at DESC') ;)
+     * @param string $columnOrder Nom de la colonne à trier suivie de ASC ou DESC
+     * @return array Tableau des enregistrements trouvés
+     */
+    public function findAllOrderBy($columnOrder)
+    {
+        $query = $this->requete('SELECT * FROM ' . $this->table . ' ORDER BY ' . $columnOrder);
+        return $query->fetchAll();
+    }
+
+
+
+
+    /*  ____________________________________________________ FIND BY ____________________________________________________*/
     /**
      * Sélection de plusieurs enregistrements suivant un tableau de critères (ex : $annonces = $model->findBy([‘actif’ => 1]) ;)
      * @param array $criteres Tableau de critères
@@ -53,6 +71,30 @@ class Model extends Db
     }
 
     /**
+     * Sélection de plusieurs enregistrements suivant un tableau de critères et un ordre croisant ou décroissant (ex : $annonces = $model->findBy([‘actif’ => 1], 'created_at DESC') ;)
+     * @param array $criteres
+     * @param string $columnOrder Nom de la colonne à trier suivi de ASC ou DESC
+     * @return array Tableau des enregistrements trouvés
+     */
+    public function findByOrderBy(array $criteres, string $columnOrder)
+    {
+        $champs = [];
+        $valeurs = [];
+
+        foreach ($criteres as $champ => $valeur) {
+            $champs[] = "$champ = ?";
+            $valeurs[] = $valeur;
+        }
+
+        $liste_champs = implode(' AND ', $champs);
+
+        return $this->requete("SELECT * FROM {$this->table} WHERE $liste_champs ORDER BY $columnOrder", $valeurs)->fetchAll();
+    }
+
+
+
+    /*  ____________________________________________________ FIND ____________________________________________________*/
+    /**
      * Sélection d'un enregistrement suivant son id
      * @param integer $id id de l'enregistrement
      * @return array Tableau contenant l'enregistrement trouvé
@@ -63,8 +105,9 @@ class Model extends Db
     }
 
 
+
     /* 
-        -------------------------------------------------------- REQUÊTE --------------------------------------------------------
+        XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX REQUETE XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
     */
     /**
      * Méthode qui exécutera ou préparera les requêtes selon les cas
@@ -91,7 +134,7 @@ class Model extends Db
 
 
     /* 
-        -------------------------------------------------------- CREATE --------------------------------------------------------
+        XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX CREATE XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
     */
     /**
      * Insertion d'un enregistrement suivant un tableau de données
@@ -122,7 +165,7 @@ class Model extends Db
 
 
     /* 
-        -------------------------------------------------------- UPDATE --------------------------------------------------------
+      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX UPDATE XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
     */
     /**
      * Mise à jour d'un enregistrement suivant un tableau de données
@@ -153,7 +196,7 @@ class Model extends Db
 
 
     /* 
-        -------------------------------------------------------- DELETE --------------------------------------------------------
+       XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX DELETE XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-
     */
     /**
      * Suppression d'un enregistrement
@@ -167,7 +210,7 @@ class Model extends Db
 
 
     /* 
-        -------------------------------------------------------- HYDRATER --------------------------------------------------------
+       XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX HYDRATER  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
     */
     /**
      * Hydratation des données

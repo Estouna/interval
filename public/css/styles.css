@@ -1,21 +1,21 @@
 .fT-Resp{
-    font-size: clamp(10px, 0.9vw, 40px);
+    font-size: clamp(12px, 0.9vw, 40px);
 }
 
 h1{
-    font-size: calc(29px + 0.15vw);
+    font-size: calc(24px + 0.15vw);
 }
 
 h2{
-    font-size: calc(23px + 0.15vw);
+    font-size: calc(20px + 0.15vw);
 }
 
 h3{
-    font-size: calc(16px + 0.15vw);
+    font-size: calc(15px + 0.15vw);
 }
 
 h4{
-    font-size: calc(14px + 0.15vw);
+    font-size: calc(13px + 0.15vw);
 }
 
 pre {

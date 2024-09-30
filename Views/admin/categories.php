@@ -20,11 +20,14 @@
     </div>
 <?php endif; ?>
 
-<div class="text-center mt-5">
-    <a href="<?= BASE_PATH ?>admin/listeCat" class="btn btn-primary">Renommer une catégorie</a>
-</div>
-<div class="text-center mt-5">
-    <a href="<?= BASE_PATH ?>admin/ajoutCat" class="btn btn-primary">Ajouter une nouvelle catégorie</a>
+<div class="row justify-content-center">
+    <div>
+        <a href="<?= BASE_PATH ?>admin/listeCat" class="btn btn-primary m-2" style="width: 250px">Renommer une catégorie</a>
+    </div>
+    <div class="d-flex flex-column">
+        <a href="<?= BASE_PATH ?>admin/ajoutCat" class="btn btn-primary m-2" style="width: 250px">Ajouter une nouvelle catégorie</a>
+        <a href="<?= BASE_PATH ?>admin/supprimeCat" class="btn btn-primary m-2" style="width: 250px">Supprimer une catégorie</a>
+    </div>
 </div>
 
 <h2 class="text-primary text-center border-top border-primary py-3 my-5">Ajouter une sous-catégories dans :</h2>

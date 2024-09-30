@@ -15,12 +15,16 @@ class AnnoncesController extends Controller
     {
         // Instancie le modèle correspondant à la table annonces
         $annoncesModel = new AnnoncesModel;
+        $categoriesModel = new CategoriesModel;
 
         // Sélection des annonces actives
-        $annonces = $annoncesModel->findBy(['actif' => 1]);
+        $annonces = $annoncesModel->findByOrderBy(['actif' => 1], 'created_at DESC');
+
+        $categories = $categoriesModel->findAll();
+
 
         // Sans compact(): $this->render('annonces/index', ['annonces' => $annonces]);
-        $this->render('annonces/index', compact('annonces'));
+        $this->render('annonces/index', compact('annonces', 'categories'));
     }
 
 

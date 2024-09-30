@@ -29,11 +29,6 @@ include_once 'includes/navbar.php';
         -->
     <?= $content ?>
 
-    <!-- BOUTON LISTE ANNONCES-->
-    <div class="text-center mt-5">
-        <a href="<?= BASE_PATH ?>annonces" class="btn btn-primary">Voir la liste des annonces</a>
-    </div>
-
 </div>
 
 <?php include_once 'includes/footer.php'; ?>

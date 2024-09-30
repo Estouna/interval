@@ -1,7 +1,8 @@
 <!-- 
     -------------------------------------------------------- PLAN DE L'ARBRE DES CATEGORIES JUSQU'AU LV 5 -------------------------------------------------------- 
 -->
-<h1 class="text-primary text-center my-5">Plan de l'arbre des catégories jusqu'au niveau 5</h1>
+<h1 class="text-primary text-center mt-5">Plan de l'arbre des catégories jusqu'au niveau 5</h1>
+<p class="text-primary text-center mb-5">(Représentation dynamique de la table des catégories)</p>
 
 <div class="d-flex justify-content-center">
     <div class="row col-lg-12 p-0 justify-content-center">

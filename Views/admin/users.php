@@ -1,4 +1,4 @@
-<h2 class="text-primary text-center border-top border-primary py-3 my-5">Gestion des utilisateurs :</h2>
+<h1 class="text-white bg-primary text-center mt-4 mb-5 p-2">Gestion des utilisateurs :</h1>
 
 <div class="table-responsive table-sm mt-4">
     <table class="table table-dark table-striped">

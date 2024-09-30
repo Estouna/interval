@@ -1,4 +1,3 @@
-# Démarre le moteur de réécriture
 RewriteEngine On
 # A décommenter pour mettre en ligne sur alwaysdata
 # RewriteBase /interval/

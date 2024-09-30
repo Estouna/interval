@@ -42,7 +42,7 @@ class AdminController extends Controller
         if ($this->isAdmin()) {
 
             $categoriesModel = new CategoriesModel;
-            $categoriesList = $categoriesModel->findAll();
+            $categoriesList = $categoriesModel->findAllOrderBy('lft ASC');
 
         }
         $this->render('admin/listeCat', compact('categoriesList'), 'admin');
@@ -95,9 +95,6 @@ class AdminController extends Controller
             $parent_id_sc = $sous_categories->findCategoryId_Max();
             $lft_sc = $sous_categories->findLft_newSubCatRac();
             $rght_sc = $sous_categories->findRght_newSubCatRac();
-            var_dump($parent_id_sc);
-            var_dump($lft_sc);
-            var_dump($rght_sc);
 
             // Vérifie que les champs existent et ne sont pas vides (à compléter)
             if (Form::validate($_POST, ['titre', 'titre-scRac'])) {
@@ -244,7 +241,7 @@ class AdminController extends Controller
 
             // Liste des annonces à modifier
             $annoncesModel = new AnnoncesModel;
-            $annonces = $annoncesModel->findAll();
+            $annonces = $annoncesModel->findAllOrderBy('categories_id ASC');
 
             $this->render('admin/annonces', compact('annonces', 'categories_origin'), 'admin');
         }
